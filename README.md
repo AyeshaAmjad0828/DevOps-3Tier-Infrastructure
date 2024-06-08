@@ -1,4 +1,4 @@
-# DevOps-FinalProject
+# AWS 3-TIER APPLICATION
  Automated DevOps Pipeline for a Scalable Web Application with Real-time Analytics
 
 **Project Deliverables**
