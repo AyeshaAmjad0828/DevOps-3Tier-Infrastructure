@@ -8,7 +8,8 @@ resource "aws_db_instance" "postgresql_db" {
   db_name              = "reviews"
   username             = "postgres"
   password             = "admin123"
-  publicly_accessible = false
+  skip_final_snapshot  = true
+  publicly_accessible  = false
   db_subnet_group_name = aws_db_subnet_group.postgressql_subnet_group.name
   depends_on = [ aws_security_group.postgresql_sg ]
   vpc_security_group_ids = [aws_security_group.postgresql_sg.id]

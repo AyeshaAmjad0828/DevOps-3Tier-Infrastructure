@@ -88,13 +88,13 @@ resource "aws_lb_listener" "app_listener" {
 resource "aws_lb_target_group_attachment" "frontend_attachment" {
     depends_on = [ aws_instance.ec2_instance_private ]
   target_group_arn  = aws_lb_target_group.frontend_tg.arn
-  target_id         = element(aws_instance.ec2_instance_private.*.id, index(var.ec2_instance_names, "frontend"))
+  target_id         = element(aws_instance.ec2_instance_private.*.id, index(var.ec2_names, "frontend"))
   port              = 80
 }
 
 resource "aws_lb_target_group_attachment" "backend_attachment" {
     depends_on = [ aws_instance.ec2_instance_private ]
   target_group_arn = aws_lb_target_group.backend_tg.arn
-  target_id = element(aws_instance.ec2_instance_private.*.id, index(var.ec2_instance_names, "backend"))
+  target_id = element(aws_instance.ec2_instance_private.*.id, index(var.ec2_names, "backend"))
   port = 80
 }

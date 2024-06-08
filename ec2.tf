@@ -4,16 +4,16 @@ resource "tls_private_key" "ssh_key" {
 }
 
 resource "aws_key_pair" "ec2_key_pair" {
-  key_name   = tf_key
+  key_name   = "tf_key_aa"
   public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
 resource "local_file" "private_key" {
   content  = tls_private_key.ssh_key.private_key_pem
-  filename = "${tf_key}.pem"
+  filename = "${"tf_key_aa"}.pem"
 
   provisioner "local-exec" {
-    command = "chmod 600 ${tf_key}.pem"
+    command = "chmod 600 ${"tf_key_aa"}.pem"
   }
 }
 

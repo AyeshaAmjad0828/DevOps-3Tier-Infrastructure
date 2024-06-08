@@ -1,5 +1,10 @@
 # variables.tf
 
+variable "tf_key" {
+  description = "The key name for the EC2 instance"
+  type        = string
+  default     = "tf_key_aa"  // Or any default you prefer
+}
 
 #####################################  EC2  ###############################################
 
@@ -30,13 +35,13 @@ variable "instance_type" {
 variable "local_filepath" {
   description = "Local file to copy"
   type        = string
-  default     = "tf_key.pem" 
+  default     = "tf_key_aa.pem" 
 }
 
 variable "remote_filepath" {
   description = "Remote file path on the instance"
   type        = string
-  default     = "/home/ubuntu/tf_key.pem"  
+  default     = "/home/ubuntu/tf_key_aa.pem"  
 }
 
 variable "private_ec2_name" {
