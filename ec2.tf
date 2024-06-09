@@ -26,6 +26,8 @@ resource "aws_instance" "bastion_aa" {
   depends_on = [aws_security_group.public_sg]
   vpc_security_group_ids = [aws_security_group.public_sg.id]
 
+  user_data = templatefile("${path.module}/userdata.sh", {})
+
 provisioner "file" {
     source      = var.local_filepath
     destination = var.remote_filepath
